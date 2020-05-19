@@ -43,12 +43,6 @@ module.exports = {
         use: (isCi ? [] : ['cache-loader']).concat(['babel-loader']),
       },
       {
-        test: /(pdfkit|linebreak|fontkit|unicode|brotli|png-js).*\.js$/,
-        use: {
-          loader: 'transform-loader?brfs',
-        },
-      },
-      {
         test: /\.(woff2?|eot|ttf|otf|png|jpe?g|gif|svg)(\?.*)?$/,
         exclude: /\.inline\.svg$/,
         use: {
