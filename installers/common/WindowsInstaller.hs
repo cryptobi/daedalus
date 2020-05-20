@@ -217,7 +217,7 @@ writeInstallerNSIS outName (Version fullVersion') InstallerConfig{hasBlock0,inst
                 --file [] "wallet-topology.yaml"
                 --file [] "configuration.yaml"
                 --file [] "*genesis*.json"
-                file [] "launcher-config.yaml"
+                file [] "launcher-config-ITN-jormungandr.yaml"
                 when hasBlock0 $
                   file [] "block-0.bin"
                 when (clusterName == ITN_Selfnode) $ do
@@ -279,7 +279,7 @@ packageFrontend cluster installerConfig = do
 -- | The contract of `main` is not to produce unsigned installer binaries.
 main :: Options -> IO ()
 main opts@Options{..}  = do
-    cp (fromText "launcher-config.yaml") (fromText "../launcher-config.yaml")
+    cp (fromText "launcher-config-ITN-jormungandr.yaml") (fromText "../launcher-config-ITN-jormungandr.yaml")
 
     installerConfig <- decodeFileThrow "installer-config.json"
 

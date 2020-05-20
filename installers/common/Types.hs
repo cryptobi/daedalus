@@ -78,7 +78,7 @@ data Config
   deriving (Bounded, Enum, Eq, Show)
 
 configFilename :: Config -> FilePath
-configFilename Launcher = "launcher-config.yaml"
+configFilename Launcher = "launcher-config-ITN-jormungandr.yaml"
 
 -- | What runtime config file to generate.
 data ConfigRequest = ConfigRequest

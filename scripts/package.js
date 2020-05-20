@@ -51,7 +51,9 @@ if (version) {
     if (err) {
       DEFAULT_OPTS.version = '1.7.9';
     } else {
-      DEFAULT_OPTS.version = stdout.split('electron@')[1].replace(/\s/g, '').split('├')[0];
+      var strx1 = stdout.split('electron@');
+      var fstrx1 = strx1[1];
+      DEFAULT_OPTS.version = fstrx1.replace(/\s/g, '').split('├')[0];
     }
     startPack();
   });
@@ -59,10 +61,12 @@ if (version) {
 
 /** @desc Build, clear previous releases and pack new versions */
 async function startPack() {
+
   // eslint-disable-next-line no-console
-  console.log('start pack...');
+  console.log('startPack() ...');
 
   try {
+
     const paths = await del('release');
 
     // Start the packing process
@@ -76,6 +80,7 @@ async function startPack() {
           pack(plat, arch, log(plat, arch));
         });
       });
+
     } else if (argv.win64) {
       pack('win32', 'x64', log('win32', 'x64'));
     } else {

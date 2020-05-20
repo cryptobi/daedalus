@@ -12,7 +12,7 @@ main = do
   let
     installDir = parent (decodeString self)
     launcherConfig :: String
-    launcherConfig = encodeString $ installDir </> "../Resources/launcher-config.yaml"
+    launcherConfig = encodeString $ installDir </> "../Resources/launcher-config-ITN-jormungandr.yaml"
     launcher = installDir </> "cardano-launcher"
   procs (tt $ installDir </> "../Resources/helper") [] mempty
   executeFile (encodeString launcher) False [ "--config", launcherConfig ] Nothing

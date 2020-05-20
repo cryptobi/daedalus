@@ -258,7 +258,7 @@ makeComponentRoot Options{oBackend,oCluster} appRoot darwinConfig@DarwinConfig{d
         cp (bridge </> "bin" </> f) (dir </> f)
 
       -- Config yaml
-      cp "launcher-config.yaml" (dataDir </> "launcher-config.yaml")
+      cp "launcher-config-ITN-jormungandr.yaml" (dataDir </> "launcher-config-ITN-jormungandr.yaml")
   case oBackend of
     Cardano bridge -> do
       common bridge

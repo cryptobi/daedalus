@@ -18,7 +18,6 @@ const {
 
 // Make sure Daedalus is started with required configuration
 const { LAUNCHER_CONFIG } = process.env;
-const isStartedByLauncher = !!LAUNCHER_CONFIG;
 const isWindows = process.platform === 'win32';
 
 export type NodeConfig = {

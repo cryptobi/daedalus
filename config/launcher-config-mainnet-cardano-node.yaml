@@ -1,0 +1,67 @@
+{
+  "cliBin":"cardano-cli",
+  "cluster":"mainnet",
+  "daedalusBin":"daedalus-frontend",
+  "exportWalletsBin":"export-wallets",
+  "isFlight":false,
+  "launcherLogsPrefix":"${XDG_DATA_HOME}/Daedalus/mainnet/Logs/pub",
+  "legacySecretKey":"Secrets/secret.key",
+  "legacyStateDir":"${XDG_DATA_HOME}/Daedalus/mainnet",
+  "legacyWalletDB":"Wallet",
+  "logsPrefix":"${XDG_DATA_HOME}/Daedalus/mainnet/Logs",
+  "networkName":"mainnet",
+  "nodeBin":"cardano-node",
+  "tlsPath":"${XDG_DATA_HOME}/Daedalus/mainnet/tls",
+  "updateArchive":"",
+  "updateWindowsRunner":"",
+  "updaterArgs":[],
+  "updaterPath":"",
+  "walletBin":"cardano-wallet-byron",
+  "walletLogging":false,
+  "workingDir":"${XDG_DATA_HOME}/Daedalus/mainnet",
+  "nodeImplementation":"cardano",
+  "stateDir":"${XDG_DATA_HOME}/Daedalus/mainnet",
+  "syncTolerance":"300s",
+  "nodeConfig":
+    {
+      "configurationDir":"",
+      "kind":"byron",
+      "network":
+        {
+          "configFile":"/nix/store/g04yc32yxqkn4f50xcb2ip33qicy2x2g-node-cfg-files/config.yaml",
+          "genesisFile":"/nix/store/g04yc32yxqkn4f50xcb2ip33qicy2x2g-node-cfg-files/genesis.json",
+          "genesisHash":"5f20df933584822601f9e3f8c024eb5eb252fe8cefb24d1317dc3d432e940ebb",
+          "topologyFile":"/nix/store/g04yc32yxqkn4f50xcb2ip33qicy2x2g-node-cfg-files/topology.yaml"
+        },
+      "socketFile":"${XDG_DATA_HOME}/Daedalus/mainnet/cardano-node.socket"},
+  "tlsConfig":
+    {
+      "ca":
+        {
+          "commonName":"Daedalus Self-Signed Root CA",
+          "expiryDays":3650,
+          "organization":"Daedalus"
+        },
+      "clients":
+        [
+        {
+          "commonName":"Daedalus Frontend",
+          "expiryDays":365,
+          "organization":"Daedalus"
+        }
+        ],
+      "server":
+        {
+          "altDNS":
+            [
+              "localhost",
+              "localhost.localdomain",
+              "127.0.0.1",
+              "::1"
+            ],
+          "commonName": "Daedalus Wallet Backend",
+          "expiryDays":365,
+          "organization":"Daedalus"
+        }
+    }
+}

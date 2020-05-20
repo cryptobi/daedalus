@@ -1,0 +1,44 @@
+{
+  "cliBin": "cardano-cli",
+  "cluster": "mainnet",
+  "daedalusBin": "daedalus-frontend",
+  "exportWalletsBin": "export-wallets",
+  "isFlight": false,
+  "launcherLogsPrefix": "${XDG_DATA_HOME}/Fakedalus/mainnet/Logs/pub",
+  "legacySecretKey": "Secrets/secret.key",
+  "legacyStateDir": "${XDG_DATA_HOME}/Fakedalus/mainnet",
+  "legacyWalletDB": "Wallet",
+  "logsPrefix": "${XDG_DATA_HOME}/Fakedalus/mainnet/Logs",
+  "networkName": "mainnet",
+  "nodeBin": "cardano-node",
+  "tlsPath":"${XDG_DATA_HOME}/Fakedalus/mainnet/tls",
+  "updateArchive":"",
+  "updateWindowsRunner":"",
+  "updaterArgs":[],
+  "updaterPath":"",
+  "walletBin":"cardano-wallet-byron",
+  "walletLogging":false,
+  "workingDir":"${XDG_DATA_HOME}/Fakedalus/mainnet",
+  "nodeImplementation":"cardano",
+  "stateDir":"${XDG_DATA_HOME}/Fakedalus/mainnet",
+  "syncTolerance":"300s",
+  "tlsConfig":{
+  "ca":{
+      "commonName": "Fakedalus Self-Signed Root CA",
+      "expiryDays": 3650,
+      "organization": "Fakedalus"},
+    "clients":[{
+        "commonName": "Fakedalus Frontend",
+        "expiryDays": 365,
+        "organization": "Fakedalus"}],
+    "server": {
+      "altDNS": [
+        "localhost",
+        "localhost.localdomain",
+        "127.0.0.1",
+        "::1"],
+      "commonName": "Fakedalus Wallet Backend",
+      "expiryDays": 365,
+      "organization": "Fakedalus"}
+  }
+}
