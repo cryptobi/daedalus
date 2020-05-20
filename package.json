@@ -96,7 +96,7 @@
     "chai": "4.2.0",
     "chalk": "3.0.0",
     "concurrently": "5.1.0",
-    "cross-env": "7.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "2.0.1",
     "cucumber": "6.0.5",
     "cucumber-pretty": "6.0.0",

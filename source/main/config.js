@@ -20,25 +20,6 @@ const {
 const { LAUNCHER_CONFIG } = process.env;
 const isStartedByLauncher = !!LAUNCHER_CONFIG;
 const isWindows = process.platform === 'win32';
-if (!isStartedByLauncher) {
-  const dialogTitle = 'Daedalus improperly started!';
-  let dialogMessage;
-  if (isProduction) {
-    dialogMessage = isWindows
-      ? 'Please start Daedalus using the icon in the Windows start menu or using Daedalus icon on your desktop.'
-      : 'Daedalus was launched without needed configuration. Please start Daedalus using the shortcut provided by the installer.';
-  } else {
-    dialogMessage =
-      'Daedalus should be started using nix-shell. Find more details here: https://github.com/input-output-hk/daedalus/blob/develop/README.md';
-  }
-  try {
-    // app may not be available at this moment so we need to use try-catch
-    dialog.showErrorBox(dialogTitle, dialogMessage);
-    app.exit(1);
-  } catch (e) {
-    throw new Error(`${dialogTitle}\n\n${dialogMessage}\n`);
-  }
-}
 
 export type NodeConfig = {
   configurationDir: string,
