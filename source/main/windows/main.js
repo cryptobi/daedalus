@@ -20,7 +20,7 @@ const getWindowTitle = (locale: string): string => {
   let title = buildLabel;
   if (isBlankScreenFixActive)
     title += ` ${translation('title.blankScreenFix')}`;
-  return title;
+  return 'Fakedalus - ' + title;
 };
 
 type WindowOptionsType = {
