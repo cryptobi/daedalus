@@ -6,6 +6,7 @@ const electronConnect = require('electron-connect');
 const flowRemoveTypes = require('gulp-flow-remove-types');
 const mainWebpackConfig = require('./source/main/webpack.config');
 const rendererWebpackConfig = require('./source/renderer/webpack.config');
+const cstatics = require('./scripts/copystatics');
 
 // Setup electron-connect server to start the app in development mode
 let electronServer;
@@ -72,6 +73,11 @@ const buildRendererWatch = () => done =>
     )
     .pipe(rendererOutputDestination());
 
+gulp.task('package-statics', done => {
+  cstatics.addLibDistFiles();
+  done();
+});
+
 gulp.task(
   'clear:cache',
   shell.task('rimraf ./node_modules/.cache && rimraf .cache-loader')
@@ -114,7 +120,10 @@ gulp.task(
 
 gulp.task('build:renderer:watch', buildRendererWatch());
 
-gulp.task('build', gulp.series('clean:dist', 'build:main', 'build:renderer'));
+gulp.task(
+  'build',
+  gulp.series('clean:dist', 'build:main', 'package-statics', 'build:renderer')
+);
 
 gulp.task('prepare:themes:utils', () =>
   gulp
