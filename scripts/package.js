@@ -9,6 +9,9 @@ const packager = require('electron-packager');
 const del = require('del');
 const exec = require('child_process').exec;
 const pkg = require('../package.json');
+const copy = require('copy');
+const fs = require('fs');
+
 
 /**
  * First two values are node path and current script path
@@ -59,11 +62,44 @@ if (version) {
   });
 }
 
+/*
+  Unable to get static resources packaged using webpack,
+  made manual copying routine.
+*/
+function addLibDistFiles(){
+  console.log("Copying static dependencies...")
+
+  fs.mkdir('dist/font/data',
+    { recursive: true }, (err) => {
+      if (err) {
+        return console.error(err);
+      }
+      console.log('Font directory created successfully.');
+    });
+
+  copy('./node_modules/pdfkit/js/font/data/*.afm', './dist/font/data', function(err, files) {
+    if (err) throw err;
+  });
+
+  copy('./node_modules/fontkit/*.trie', './dist/main', function(err, files) {
+    if (err) throw err;
+  });
+
+  copy('node_modules/linebreak/src/*.trie', './dist/main', function(err, files) {
+    if (err) throw err;
+  });
+
+  console.log("DONE copying static dependencies.")
+}
+
 /** @desc Build, clear previous releases and pack new versions */
 async function startPack() {
 
   // eslint-disable-next-line no-console
   console.log('startPack() ...');
+
+  // manually copy static files missed by webpack
+  addLibDistFiles();
 
   try {
 
