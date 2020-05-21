@@ -188,6 +188,8 @@ gulp.task(
   )
 );
 
+gulp.task('package-statics', shell.task('node scripts/package-statics.js'));
+
 gulp.task('test:e2e:watch', gulp.series('build:watch', 'test:e2e:nodemon'));
 
 gulp.task(
@@ -206,7 +208,12 @@ gulp.task(
 
 gulp.task(
   'dev',
-  gulp.series('server:create:dev', 'build:watch', 'server:start')
+  gulp.series(
+    'server:create:dev',
+    'build:watch',
+    'package-statics',
+    'server:start'
+  )
 );
 
 gulp.task(

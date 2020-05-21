@@ -100,6 +100,8 @@ const onAppReady = async () => {
   // first checks for japanese locale, otherwise returns english
   const systemLocale = detectSystemLocale();
 
+  console.log('asdf');
+
   const systemInfo = logSystemInfo({
     cardanoNodeVersion,
     cardanoWalletVersion,
