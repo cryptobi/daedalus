@@ -1,6 +1,7 @@
 // @flow
 import os from 'os';
 import path from 'path';
+const yargs = require('yargs');
 import { app, BrowserWindow, shell } from 'electron';
 import { client } from 'electron-connect';
 import { logger } from './utils/logging';
@@ -39,6 +40,29 @@ import { setStateSnapshotLogChannel } from './ipc/set-log-state-snapshot';
 import { generateWalletMigrationReportChannel } from './ipc/generateWalletMigrationReportChannel';
 
 /* eslint-disable consistent-return */
+
+/*
+  Parse command line arguments.
+*/
+const argv = yargs
+  .option('genesisfile', {
+    alias: 'g',
+    description: 'Genesis file path',
+    type: 'string',
+  })
+  .option('genesishash', {
+    alias: 'h',
+    description: 'Genesis hash',
+    type: 'string',
+  })
+  .option('optionsfile', {
+    alias: 'f',
+    description: 'Options file path',
+    type: 'string',
+  }).argv;
+
+console.log(argv);
+app.quit();
 
 // Global references to windows to prevent them from being garbage collected
 let mainWindow: BrowserWindow;

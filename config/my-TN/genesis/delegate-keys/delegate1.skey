@@ -1,0 +1,4 @@
+type: Node operator signing key
+title: Genesis delegate operator key
+cbor-hex:
+ 58203834408803267f674963b62900cf5c59569f2133673deb25cd334692985f91b4

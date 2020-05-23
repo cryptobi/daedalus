@@ -1,0 +1,4 @@
+type: Genesis signing key
+title: Genesis key
+cbor-hex:
+ 5820aba87e2681eaf24dbcd35b4930ed52c773217b7a76c8906c12af3eca08cbfa97

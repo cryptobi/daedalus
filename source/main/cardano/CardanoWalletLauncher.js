@@ -53,6 +53,7 @@ export async function CardanoWalletLauncher(walletOpts: WalletOpts): Launcher {
     walletLogFile,
     cliBin,
   } = walletOpts;
+
   // TODO: Update launcher config to pass number
   const syncToleranceSeconds = parseInt(syncTolerance.replace('s', ''), 10);
 
